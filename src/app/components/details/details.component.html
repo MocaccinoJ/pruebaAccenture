@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+
+<main class="home">
+	<div>
+		<img src="{{ pictureUser }}" class="user-avatar" />
+		<h1 class="user-name">{{ nameUser }}</h1>
+		<h1 class="user-login">{{ userLogin }}</h1>
+		<main class="home-2">
+			<div>
+				<img
+					src="../../../assets/organization icon.svg"
+					class="organization-icon"
+					alt=""
+				/>
+			</div>
+			<div class="organization-name">{{ userOrganization }}</div>
+			<div class="">
+				<img
+					src="../../../assets/location icon.svg"
+					class="location-icon"
+					alt=""
+				/>
+			</div>
+			<div class="location-name">{{ userLocation }}</div>
+			<div>
+				<img
+					src="../../../assets/star icon.svg"
+					class="star-icon"
+					alt=""
+				/>
+			</div>
+			<div class="star-count">"STAR COUNTER"</div>
+
+			<div>
+				<img
+					src="../../../assets/repositorie icon.svg"
+					class="repositorie-icon"
+					alt=""
+				/>
+			</div>
+			<div class="repositories-count">{{ userPublicRepos }}</div>
+			<div>
+				<img
+					src="../../../assets/followers icon.svg"
+					alt=""
+					class="followers-icon"
+				/>
+			</div>
+			<div class="followers-count">{{ userFollowers }}</div>
+		</main>
+	</div>
+	<div>
+		<main class="home-3">hola</main>
+	</div>
+</main>

@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "accenturePrueba"
+  "defaultProject": "accenturePrueba",
+  "cli": {
+    "analytics": "9a153593-d1b9-4828-923c-1620e9831d47"
+  }
 }

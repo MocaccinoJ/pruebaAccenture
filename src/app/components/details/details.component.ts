@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { GitHubServiceService } from 'src/app/service/git-hub-service.service';
 
 @Component({
@@ -8,13 +8,6 @@ import { GitHubServiceService } from 'src/app/service/git-hub-service.service';
 	styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-	constructor(
-		private router: Router,
-		private services: GitHubServiceService
-	) {}
-
-	ngOnInit(): void {}
-
 	pictureUser = this.getAvatar();
 	nameUser = this.getUser();
 	userLogin = this.getLogin();
@@ -28,6 +21,19 @@ export class DetailsComponent implements OnInit {
 		stargazers_count: any;
 		html_url: any;
 	}[] = [];
+	username: any;
+
+	constructor(
+		private activatedRoute: ActivatedRoute,
+		private router: Router,
+		private services: GitHubServiceService
+	) {}
+
+	ngOnInit(): void {
+		// this.activatedRoute.paramMap.subscribe((params: ParaMap) => {
+		// 	this.username = params.get('usuario');
+		// });
+	}
 
 	getAvatar() {
 		const perfilPicture = JSON.parse(localStorage.getItem('user') || '');
@@ -39,14 +45,14 @@ export class DetailsComponent implements OnInit {
 	getUser() {
 		const username = JSON.parse(localStorage.getItem('user') || '');
 
-		const user = username['login'];
+		const user = username['name'];
 		return user;
 	}
 
 	getLogin() {
 		const login = JSON.parse(localStorage.getItem('user') || '');
 
-		const loginUser = login['name'];
+		const loginUser = login['login'];
 		return loginUser;
 	}
 
@@ -82,9 +88,11 @@ export class DetailsComponent implements OnInit {
 	allRepos = this.getRepos();
 
 	getRepos() {
-		const repos = JSON.parse(localStorage.getItem('repos') || '');
-		this.repositories = this.createObject(repos).sort((a, b) => {
-			return b.stargazers_count - a.stargazers_count;
+		const user1 = localStorage.getItem('username');
+		this.services.getRepos(user1).subscribe((repos) => {
+			this.repositories = this.createObject(repos).sort((a, b) => {
+				return b.stargazers_count - a.stargazers_count;
+			});
 		});
 	}
 

@@ -28,6 +28,9 @@
 .Search-Input {
 	width: 650px;
 	height: 50px;
+	font-size: 30px;
+	color: #5c5c5c;
+	font-family: Roboto;
 	background-color: var(--white);
 	border-color: rgb(230, 230, 230);
 	margin-left: 13%;

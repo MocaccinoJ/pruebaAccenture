@@ -14,12 +14,15 @@ export class NavbarComponent implements OnInit {
 		private route: ActivatedRoute
 	) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		localStorage.clear();
+	}
 
 	get(username: string) {
 		this.services.getUsers(username).subscribe(
 			(users) => {
 				localStorage.setItem('user', JSON.stringify(users));
+				localStorage.setItem('username', username);
 				this.router.navigate(['details']);
 			},
 			(error) => {

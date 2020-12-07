@@ -1,45 +1,47 @@
-.Github-Search {
+.Github-text {
 	width: 415px;
 	height: 81px;
 	font-size: 60px;
 	font-family: monaco;
-	font-stretch: normal;
 	text-align: center;
-	margin: 0;
-	padding: 0;
 	position: absolute;
+	padding-bottom: 10px;
 	left: 50%;
-	top: 45%;
+	top: 35%;
 	transform: translateX(-50%) translateY(-50%);
 }
 
-.Search-Input {
-	width: 650px;
+.Search-bar {
+	width: 550px;
 	height: 50px;
-	margin: 81px 0 0;
-	position: absolute;
-	left: 49%;
-	top: 45%;
-	transform: translateX(-50%) translateY(-50%);
+	font-size: 30px;
+	color: #5c5c5c;
+	font-family: Roboto;
+	margin: 27px 0 0;
 	background-color: var(--white);
 	border-color: #f5f5f5;
 }
 
-.text-style-1 {
-	font-family: Raleway;
+.search-text {
+	font-family: Roboto;
 	font-weight: 200;
 	font-style: italic;
+	color: rgb(66, 66, 66);
 }
 
-.button {
+.button-search {
 	width: 100px;
 	height: 56px;
-	margin: 0;
-	padding: 10px 35px 9.9px 35px;
+	margin-top: 27px;
 	border-radius: 2px;
-	background-color: #ac53f2;
 	position: absolute;
-	left: 73%;
-	top: 53.5%;
+	background-color: #ac53f2;
 	border: none;
+}
+
+.input-container {
+	position: absolute;
+	left: 50%;
+	top: 65%;
+	transform: translateX(-50%) translateY(-50%);
 }

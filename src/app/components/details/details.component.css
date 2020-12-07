@@ -6,6 +6,10 @@
 	margin-top: 5%;
 }
 
+body {
+	margin: 0;
+}
+
 .home-2 {
 	display: grid;
 	grid-gap: 1rem;
@@ -27,21 +31,16 @@
 .user-avatar {
 	width: 280px;
 	height: 280px;
-	border-radius: 2px;
+	border-radius: 5px;
 	box-shadow: 0 0 4px NaNpx var(--black-40);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
 .user-name {
-	width: 280px;
+	width: 418px;
 	height: 40px;
 	margin: 12px 67px 0.5px 3px;
 	font-family: Raleway;
-	font-size: 35px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
 	color: #000000;
 }
 
@@ -50,48 +49,29 @@
 	height: 25px;
 	margin: 7px 67px 28px 3px;
 	font-family: Raleway;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
 	color: #5c5c5c;
 }
 /* icons */
 .organization-icon {
-	width: 24px;
-	height: 24px;
 	margin: 23px 16px 0 16px;
-	object-fit: contain;
 }
 
 .star-icon {
-	width: 24px;
-	height: 24px;
 	margin: 23px 16px 0 16px;
-	object-fit: contain;
 }
 
 .location-icon {
-	width: 24px;
-	height: 24px;
 	margin: 23px 15px 0 16px;
-	object-fit: contain;
 }
 
 .repositorie-icon {
-	width: 24px;
-	height: 24px;
 	margin: 22px 18px 1px 15px;
-	object-fit: contain;
 }
 
 .followers-icon {
-	width: 24px;
-	height: 24px;
 	margin: 23px 142px 0 18px;
-	object-fit: contain;
 }
 
 /* texts */
@@ -100,13 +80,8 @@
 	width: 240px;
 	height: 22px;
 	margin: 27px 76px 12px 7px;
-	font-family: Raleway;
+	font-family: Roboto, sans-serif;
 	font-size: 20px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
 	color: #5c5c5c;
 }
 
@@ -114,13 +89,8 @@
 	width: 240px;
 	height: 22px;
 	margin: 20px 76px 13px 7px;
-	font-family: Raleway;
+	font-family: Roboto, sans-serif;
 	font-size: 20px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
 	color: #5c5c5c;
 }
 
@@ -128,13 +98,8 @@
 	width: 240px;
 	height: 22px;
 	margin: 20.7px 76px 2px 7px;
-	font-family: Raleway;
+	font-family: Roboto, sans-serif;
 	font-size: 20px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
 	color: #5c5c5c;
 }
 
@@ -142,13 +107,8 @@
 	width: 240px;
 	height: 22px;
 	margin: 20px 76px 1px 7px;
-	font-family: Raleway;
+	font-family: Roboto, sans-serif;
 	font-size: 20px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
 	color: #5c5c5c;
 }
 
@@ -156,33 +116,21 @@
 	width: 240px;
 	height: 22px;
 	margin: 23px 76px 22.8px 7px;
-	font-family: Raleway;
+	font-family: Roboto, sans-serif;
 	font-size: 20px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
 	color: #5c5c5c;
 }
 
 .star-count-1 {
-	width: 255.3px;
-	height: 22.4px;
-	margin: 11.2px 356.7px 30px 7.4px;
+	margin: 0px 5px 8px 0.5px;
 	display: inline-block;
-	font-family: Raleway;
 	font-size: 20px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: Raleway;
-	line-height: normal;
-	letter-spacing: normal;
+	font-family: Roboto, sans-serif;
 	color: #5c5c5c;
 }
 
 .repo-name {
-	width: 375.5px;
+	width: 775.5px;
 	height: 40.8px;
 	margin: 7px 269.5px 0 1px;
 	font-family: Raleway;
@@ -192,19 +140,19 @@
 	font-style: normal;
 	line-height: normal;
 	letter-spacing: normal;
-	color: #ac53f2;
 }
 
 .repo-description {
-	width: 600px;
-	height: 25.5px;
-	margin: 15.8px 45px 9.2px 0px;
-	font-family: Raleway;
+	width: 100%;
+	height: 50%;
+	margin: 15.8px 45px 9.2px 2px;
+	font-family: "Abel", sans-serif;
 	font-size: 20px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	color: #000000;
+	color: #5c5c5c;
+}
+
+a {
+	color: #ac53f2;
+	font-family: "Ubuntu", sans-serif;
+	width: 100%;
 }

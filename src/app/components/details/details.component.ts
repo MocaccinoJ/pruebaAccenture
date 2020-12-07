@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GitHubServiceService } from 'src/app/service/git-hub-service.service';
 
 @Component({
 	selector: 'app-details',
@@ -7,7 +8,10 @@ import { Router } from '@angular/router';
 	styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-	constructor(private router: Router) {}
+	constructor(
+		private router: Router,
+		private services: GitHubServiceService
+	) {}
 
 	ngOnInit(): void {}
 
@@ -18,6 +22,12 @@ export class DetailsComponent implements OnInit {
 	userLocation = this.getUserLocation();
 	userPublicRepos = this.getPublicRepos();
 	userFollowers = this.getFollowers();
+	repositories: {
+		name: any;
+		description: any;
+		stargazers_count: any;
+		html_url: any;
+	}[] = [];
 
 	getAvatar() {
 		const perfilPicture = JSON.parse(localStorage.getItem('user') || '');
@@ -69,4 +79,38 @@ export class DetailsComponent implements OnInit {
 	}
 
 	// funciones para obtener los datos de los repositorios
+	allRepos = this.getRepos();
+
+	getRepos() {
+		const repos = JSON.parse(localStorage.getItem('repos') || '');
+		this.repositories = this.createObject(repos).sort((a, b) => {
+			return b.stargazers_count - a.stargazers_count;
+		});
+	}
+
+	createObject(
+		repositories: {
+			name: any;
+			description: any;
+			stargazers_count: any;
+			html_url: any;
+		}[]
+	) {
+		let repos: {
+			name: any;
+			description: any;
+			stargazers_count: any;
+			html_url: any;
+		}[] = [];
+		repositories.forEach((repo) => {
+			let repoUser = {
+				name: repo.name,
+				description: repo.description,
+				stargazers_count: repo.stargazers_count,
+				html_url: repo.html_url,
+			};
+			repos.push(repoUser);
+		});
+		return repos;
+	}
 }

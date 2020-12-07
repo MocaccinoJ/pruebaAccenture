@@ -27,5 +27,9 @@ export class NavbarComponent implements OnInit {
 				localStorage.removeItem('user');
 			}
 		);
+		this.services.getRepos(username).subscribe((repos) => {
+			localStorage.setItem('repos', JSON.stringify(repos));
+			this.router.navigate(['details']);
+		});
 	}
 }

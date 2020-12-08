@@ -3,9 +3,9 @@
 ## Inicializar el servidor
 
 El primer paso es clonar el repositorio a través del comando git clone https://github.com/MocaccinoJ/pruebaAccenture.git
-luego se debe acceder a la carpeta del proyecto "accenturePrueba" accediendo a la dirección exacta con el
-comando "cd purebaAccenture" en la terminal, Para inicializar el servidor del proyecto se debe ejecutar
-el siguiente comando en la terminal "ng serve --open"
+luego se debe acceder a la carpeta del proyecto "accenturePrueba" accediendo a la dirección exacta con el comando "cd purebaAccenture" en la terminal,  
+una vez dentro de la carpeta, se debe ejecutar el comando 'npm install' para instalar las dependencias necesarias  
+ya finalizada la instalación, se ejecuta el comando 'ng serve --open' para inicializar la aplicación.
 
 ## Descripción del proyecto
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { GitHubServiceService } from 'src/app/service/git-hub-service.service';
 
 @Component({
@@ -8,13 +8,15 @@ import { GitHubServiceService } from 'src/app/service/git-hub-service.service';
 	styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-	pictureUser = this.getAvatar();
-	nameUser = this.getUser();
-	userLogin = this.getLogin();
-	userOrganization = this.getOrganization();
-	userLocation = this.getUserLocation();
-	userPublicRepos = this.getPublicRepos();
-	userFollowers = this.getFollowers();
+	pictureUser = '';
+	users = '';
+	nameUser = '';
+	userLogin = '';
+	userOrganization = '';
+	userLocation = '';
+	userPublicRepos = '';
+	userFollowers = '';
+	userStar = '';
 	repositories: {
 		name: any;
 		description: any;
@@ -30,70 +32,39 @@ export class DetailsComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		// this.activatedRoute.paramMap.subscribe((params: ParaMap) => {
-		// 	this.username = params.get('usuario');
-		// });
-	}
-
-	getAvatar() {
-		const perfilPicture = JSON.parse(localStorage.getItem('user') || '');
-
-		const avatar_url = perfilPicture['avatar_url'];
-		return avatar_url;
-	}
-
-	getUser() {
-		const username = JSON.parse(localStorage.getItem('user') || '');
-
-		const user = username['name'];
-		return user;
-	}
-
-	getLogin() {
-		const login = JSON.parse(localStorage.getItem('user') || '');
-
-		const loginUser = login['login'];
-		return loginUser;
-	}
-
-	getOrganization() {
-		const organization = JSON.parse(localStorage.getItem('user') || '');
-
-		const organizationUser = organization['company'];
-		return organizationUser;
-	}
-
-	getUserLocation() {
-		const location = JSON.parse(localStorage.getItem('user') || '');
-
-		const locationUser = location['location'];
-		return locationUser;
-	}
-
-	getPublicRepos() {
-		const reposPublic = JSON.parse(localStorage.getItem('user') || '');
-
-		const repos = reposPublic['public_repos'];
-		return repos;
-	}
-
-	getFollowers() {
-		const followers = JSON.parse(localStorage.getItem('user') || '');
-
-		const followersUser = followers['followers'];
-		return followersUser;
+		this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+			this.username = params.get('usuario');
+			this.getRepos();
+			this.getUser();
+		});
 	}
 
 	// funciones para obtener los datos de los repositorios
-	allRepos = this.getRepos();
 
 	getRepos() {
-		const user1 = localStorage.getItem('username');
-		this.services.getRepos(user1).subscribe((repos) => {
+		this.services.getRepos(this.username).subscribe((repos) => {
 			this.repositories = this.createObject(repos).sort((a, b) => {
 				return b.stargazers_count - a.stargazers_count;
 			});
 		});
+	}
+
+	getUser() {
+		this.services.getUsers(this.username).subscribe(
+			(users: any) => {
+				this.pictureUser = users['avatar_url'];
+				this.nameUser = users['name'];
+				this.userLogin = users['login'];
+				this.userOrganization = users['company'] || 'Sin Compañía';
+				this.userLocation = users['location'] || 'Sin Ubicación';
+				this.userPublicRepos = users['public_repos'];
+				this.userFollowers = users['followers'];
+				this.userStar = users['star'] || 0;
+			},
+			(err) => {
+				this.router.navigate(['not-found']);
+			}
+		);
 	}
 
 	createObject(

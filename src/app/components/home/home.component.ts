@@ -14,20 +14,8 @@ export class HomeComponent implements OnInit {
 		private route: ActivatedRoute
 	) {}
 
-	ngOnInit(): void {
-		localStorage.clear();
-	}
+	ngOnInit(): void {}
 	get(username: string) {
-		this.services.getUsers(username).subscribe(
-			(users) => {
-				localStorage.setItem('username', username);
-				localStorage.setItem('user', JSON.stringify(users));
-				this.router.navigate(['details']);
-			},
-			(error) => {
-				this.router.navigate(['not-found']);
-				localStorage.removeItem('user');
-			}
-		);
+		this.router.navigate([`details/${username}`]);
 	}
 }

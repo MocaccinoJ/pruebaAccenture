@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GitHubServiceService } from 'src/app/service/git-hub-service.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-navbar',
@@ -10,29 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 	constructor(
 		private services: GitHubServiceService,
-		private router: Router,
-		private route: ActivatedRoute
+		private router: Router
 	) {}
 
-	ngOnInit(): void {
-		localStorage.clear();
-	}
+	ngOnInit(): void {}
 
 	get(username: string) {
-		this.services.getUsers(username).subscribe(
-			(users) => {
-				localStorage.setItem('user', JSON.stringify(users));
-				localStorage.setItem('username', username);
-				this.router.navigate(['details']);
-			},
-			(error) => {
-				this.router.navigate(['not-found']);
-				localStorage.removeItem('user');
-			}
-		);
-		this.services.getRepos(username).subscribe((repos) => {
-			localStorage.setItem('repos', JSON.stringify(repos));
-			this.router.navigate(['details']);
-		});
+		this.router.navigate([`details/${username}`]);
 	}
 }

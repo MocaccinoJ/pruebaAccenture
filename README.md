@@ -1,27 +1,16 @@
 # AccenturePrueba
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+## Inicializar el servidor
 
-## Development server
+El primer paso es clonar el repositorio a través del comando git clone https://github.com/MocaccinoJ/pruebaAccenture.git
+luego se debe acceder a la carpeta del proyecto "accenturePrueba" accediendo a la dirección exacta con el
+comando "cd purebaAccenture" en la terminal, Para inicializar el servidor del proyecto se debe ejecutar
+el siguiente comando en la terminal "ng serve --open"
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Descripción del proyecto
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+El presente proyecto consume una API pública de Github, está diseñado para poder realizar busquedas de  
+usuarios en github a través del nombre de usuario de cada perfil, obteniendo los datos más relevantes  
+tales cómo los repositorios, número de seguidores, cuantas estrellas tiene cada repositorio, dichos  
+repositorios están ordenados de manera decreciente por número de estrellas obtenidas por distintos  
+usuarios. Se pueden buscar indefinidas veces a través del buscador del programa.
